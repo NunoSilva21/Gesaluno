@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "name": "geslauno",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NunoSilva21/Gesaluno.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NunoSilva21/Gesaluno/issues"
+  },
+  "homepage": "https://github.com/NunoSilva21/Gesaluno#readme",
+  "description": ""
+}
