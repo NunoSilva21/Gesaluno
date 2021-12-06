@@ -1,13 +1,7 @@
 {
-  "dependencies": {
-    "express": "^4.17.1",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
-  "name": "geslauno",
+  "name": "gesalunos-t2",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
@@ -18,9 +12,13 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NunoSilva21/Gesaluno/issues"
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3",
+    "path": "^0.12.7"
   },
-  "homepage": "https://github.com/NunoSilva21/Gesaluno#readme",
-  "description": ""
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
