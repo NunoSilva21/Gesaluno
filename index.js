@@ -1,7 +1,6 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-const connection = require('./dbconnection')
 app.use(express.static('./public'))
 
 //define as rotas possiveis
