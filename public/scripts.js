@@ -8,9 +8,9 @@ function getNavbar(){
     const nbar = document.getElementById('nbar')
     fetch('http://localhost:3000/navbar')
     .then(res => res.text())
-    .then((html)=>[
+    .then((html)=>{
         nbar.innerHTML += html
-    ])
+    })
     .catch(function(err){
         alert('Ocorreu um problema...')
     })
@@ -32,45 +32,68 @@ function getTipos(){
     })
 }
 
-
-
-/*funções antigas, podem dar jeito :)*/
 function getData(){
-    fetch('http://localhost:5000/bd')
-    .then(res => res.json())
-    .then(data => processData(data))
-    .catch(function(err){
-        alert('Ocorreu um problema...')
-    })
+    preencherEspaço()
 }
-function processData(data) {
-    const linhaCidade = document.getElementById('cidades')
-    linhaCidade.innerHTML=''
-    for(let i=0 ; i < 100; i++){
-        let nome = data[i].Name
-        let distrito = data[i].District
-        let pop = data[i].Population
-        let ID = data[i].ID
-        linhaCidade.innerHTML += `<tr>
-                                    <td>${nome}</td>
-                                    <td>${distrito}</td>
-                                    <td>${pop}</td>
-                                    <td>
-                                    <button
-                                        onclick="showID(${ID});"
-                                        type="button" 
-                                        class="btn btn-success"
-                                        style="width:100px;"> Editar                                      
-                                    </button>
-                                    <button 
-                                        type="button" 
-                                        class="btn btn-danger"
-                                        style="width:100px;"> Eliminar
-                                    </button>
-                                    </td>
-                                </tr>`
+
+
+function preencherEspaço(){
+    let nomeCompleto = document.getElementById('nome').value
+
+    if (nomeCompleto == '') {
+        alert ("Digita o seu nome...")
     }
-}
-function showID(ID){
-    console.log(ID)
-}
+        let morada = document.getElementById('morada_rua').value
+
+        if (morada_rua == '') {
+            alert ("Digita a sua rua..")
+        }
+
+            let morada_num = document.getElementById('morada_num').value
+
+        if (morada_num == '') {
+            alert ("Digita a morada_num..")
+        }
+
+            let dnasc = document.getElementById('dnasc').value
+
+            if (dnasc == '') {
+                alert ("Digita a sua dnasc..")
+            }
+
+
+            let telem = document.getElementById('telem').value
+
+            if (telem == '') {
+                alert ("Digita o seu telem..")
+            }
+            else{
+                let i = 0
+                for(i=0; i<telem.length; i++){
+                    let c = telem.charAt(i)
+                    console.log(c)
+                    if(isNaN(c)){
+                        console.log('número inválido')
+                        break
+                    }
+                    
+                }
+            }
+                if(isNaN(telemInt))
+                    console.log ('não é numero')
+                else
+                    console.log('é um numero')
+        }
+    
+                
+            let email = document.getElementById('email').value
+
+            if (email == '') {
+                alert ("Digita o seu email..")
+            }
+
+                let tipo = document.getElementById('tipo').value
+
+                if (tipo == '') {
+                    alert ("Digita o seu tipo..")
+                }
