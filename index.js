@@ -3,9 +3,13 @@ const path = require('path')
 const app = express()
 app.use(express.static('./public'))
 
+app.use(express.urlencoded({extended: true}))
+app.use(express.json({extended: false}))
+
 //define as rotas possiveis
 app.use('/navbar',require('./routes/navbarRoute'))
 app.use('/formdata',require('./routes/formdataRoute'))
+app.use('/utilizador', require('./routes/inserirutilizadorRoute'))
 
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, './public/index.html'))

@@ -83,7 +83,6 @@ function preencherEspaço(){
                     console.log ('não é numero')
                 else
                     console.log('é um numero')
-        }
     
                 
             let email = document.getElementById('email').value
@@ -97,3 +96,37 @@ function preencherEspaço(){
                 if (tipo == '') {
                     alert ("Digita o seu tipo..")
                 }
+                else
+                    console.log(tipo)
+
+                //criar objeto com os dados recolhidos no for.    
+                let dadosutilizador = {
+                    nomeutilizador : nome,
+                    moradarua : morada_rua,
+                    moradanumero : morada_num,
+                    datanascimento : dnasc,
+                    telemovel : telem,
+                    email : email,
+                    idtipo : tipo
+                }
+
+                //criar um JSON do objeto
+                let jsonDados = JSON.stringify(dadosutilizador)
+                
+
+                //Preparar o pedido
+                const options = {
+                    method: 'POST',
+                    header: {
+                        'Content-type' : 'application/json'
+                    },
+                    body: jsonDados
+                }
+
+                fetch ('http://localhost:3000/utilizador', options)
+                .then(res => res.json())
+                .then(res => alert(res))
+                .catch((err) => {
+                    alert('Ocorreu um erro com o pedido...')
+                })
+}
