@@ -89,7 +89,7 @@ function getData(){
     const options = {
         method: 'POST',
         headers: {
-            'Content-type' : 'application/json'
+            'Accept' : 'application/json'
         },
         body: jsonDados
     }
@@ -98,39 +98,42 @@ function getData(){
     .then(res => res.json())
     .then(response => alert(response.text))
     .catch((err) => {
-        alert('ocorreu um erro com o pedido')
+        alert(err)
     })
+    
 }
-    function sendImage(){
-        const image = document.getElementById('foto').files[0]
-        let imageData = new FormData()
-        imageData.append('image', image)
-        if(image==undefined){
-            alert('Não há imagem selecionada')
+
+function sendImage(){
+    const image = document.getElementById('foto').files[0]
+    const nomeutilizador = document.getElementById('nome').value
+    let fd = new FormData()
+    fd.append('image',image)
+    fd.append('nomeutilizador',nomeutilizador)
+    fd.append('moradarua',moradarua)
+    fd.append('moradanumero',moradanumero)
+    fd.append('datanascimento',datanascimento)
+    fd.append('telemovel',telemovel)
+    fd.append('email',email)
+    fd.append('idtipo',idtipo)
+
+    if(image == undefined)
+        alert('Não há imagem selecionada!')
+    else{
+        var options = {
+            method:'POST',
+            headers: {
+                'Accept' : 'application/json'
+            },
+            body: fd
         }
-        else {
-            let options = {
-                method: 'POST',
-                headers: {
-                    'Accept':'aplication/json'
-                },
-                body: imageData
-            }
-            fetch('http://localhost:5000/utilizador', options)
-            .then(res => res.json())
-            .then(data => alert(data.message))
-            .catch((err) => {
-                alert ('Occoreu um erro no pedido....')
-            })
-        }
+        fetch('http://localhost:5000/foto',options)
+        .then(res => res.json())
+        .then(data => alert(data.res))
+        .catch((err) => {
+            console.log('Request failed', err.message)
+        });
+
+    
     }
-
-
-
-
-
-
-
-
-
+}
 
